@@ -19,6 +19,10 @@ pub mod integer_vector {
             }
         }
 
+        pub fn get_int_vec(&self) -> &Vec<i32> {
+            &self.int_vec
+        }
+
         pub fn get_mean(&self) -> f32 {
             let mut mean = 0;
             for i in &self.int_vec {
