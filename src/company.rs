@@ -17,6 +17,10 @@ pub mod company {
             let name = desc_list[1].to_string();
             let department = desc_list[3].to_string();
 
+            self.add_by(name, department);
+        }
+
+        fn add_by(&mut self, name: String, department: String) {
             let dept = Department {
                 name: department
             };
