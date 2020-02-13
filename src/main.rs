@@ -1,8 +1,10 @@
 mod integer_vector;
 mod pig_latin;
+mod company;
 
 use integer_vector::integer_vector::RandomIntegerVector;
 use pig_latin::pig_latin::PigLatin;
+use company::company::Company;
 
 fn main() {
     let int_vec =
@@ -18,4 +20,30 @@ fn main() {
 
     println!("The pig latin of consonant \"first\" is: {}", consonant.to_pig_latin());
     println!("The pig latin of consonant \"apple\" is: {}", vowel.to_pig_latin());
+
+    let mut company = Company::new();
+    company.add(String::from("Sally"), String::from("Engineering"));
+    company.add(String::from("Bob"), String::from("Engineering"));
+    company.add(String::from("Alex"), String::from("Engineering"));
+    company.add(String::from("Amir"), String::from("Sales"));
+    company.add(String::from("Jane"), String::from("Sales"));
+    company.add(String::from("Sherry"), String::from("Sales"));
+    company.add(String::from("Amy"), String::from("IT"));
+    company.add(String::from("Charlie"), String::from("IT"));
+
+    let people_names =
+        company.get_all_people_by(String::from("Engineering"));
+
+    let mut names = String::new();
+    for name in &people_names {
+        names = names + " " + &name;
+    }
+    println!("The people in Department Engineering are: {}", names);
+
+    let all_employees = company.get_all_employees();
+    let mut employees = String::new();
+    for employee in all_employees {
+        employees = employees + "\n" + &employee;
+    }
+    println!("The all employees with department are: {}", employees);
 }
