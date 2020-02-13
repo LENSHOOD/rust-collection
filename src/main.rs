@@ -22,14 +22,14 @@ fn main() {
     println!("The pig latin of consonant \"apple\" is: {}", vowel.to_pig_latin());
 
     let mut company = Company::new();
-    company.add(String::from("Sally"), String::from("Engineering"));
-    company.add(String::from("Bob"), String::from("Engineering"));
-    company.add(String::from("Alex"), String::from("Engineering"));
-    company.add(String::from("Amir"), String::from("Sales"));
-    company.add(String::from("Jane"), String::from("Sales"));
-    company.add(String::from("Sherry"), String::from("Sales"));
-    company.add(String::from("Amy"), String::from("IT"));
-    company.add(String::from("Charlie"), String::from("IT"));
+    company.add(String::from("Add Sally to Engineering"));
+    company.add(String::from("Add Bob to Engineering"));
+    company.add(String::from("Add Alex to Engineering"));
+    company.add(String::from("Add Amir to Sales"));
+    company.add(String::from("Add Jane to Sales"));
+    company.add(String::from("Add Sherry to Sales"));
+    company.add(String::from("Add Amy to IT"));
+    company.add(String::from("Add Charlie to IT"));
 
     let people_names =
         company.get_all_people_by(String::from("Engineering"));

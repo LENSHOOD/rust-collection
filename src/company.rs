@@ -12,7 +12,11 @@ pub mod company {
             }
         }
 
-        pub fn add(&mut self, name: String, department: String) {
+        pub fn add(&mut self, description: String) {
+            let desc_list: Vec<&str> = description.as_str().split(' ').collect();
+            let name = desc_list[1].to_string();
+            let department = desc_list[3].to_string();
+
             let dept = Department {
                 name: department
             };
