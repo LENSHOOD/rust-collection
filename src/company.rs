@@ -1,6 +1,26 @@
 pub mod company {
     use std::collections::HashMap;
 
+    pub struct EmployeeDescription {
+        name: String,
+        department: String
+    }
+
+    impl EmployeeDescription {
+        pub fn new(description_str: &str) -> EmployeeDescription {
+            let desc_list: Vec<&str> = description_str.split(' ').collect();
+            if desc_list.len() != 4 {
+                panic!("Invalid description string, \
+                    format: \"Add {employee name} to {department name}\"")
+            }
+
+            EmployeeDescription {
+                name: desc_list[1].to_string(),
+                department: desc_list[3].to_string()
+            }
+        }
+    }
+
     pub struct Company {
         employee: HashMap<Department, People>
     }
@@ -12,19 +32,12 @@ pub mod company {
             }
         }
 
-        pub fn add(&mut self, description: String) {
-            let desc_list: Vec<&str> = description.as_str().split(' ').collect();
-            let name = desc_list[1].to_string();
-            let department = desc_list[3].to_string();
-
-            self.add_by(name, department);
-        }
-
-        fn add_by(&mut self, name: String, department: String) {
+        pub fn add(&mut self, employee_description: EmployeeDescription) {
             let dept = Department {
-                name: department
+                name: employee_description.department
             };
 
+            let name = employee_description.name;
             let mutable_employee = &mut self.employee;
             match mutable_employee.get_mut(&dept) {
                 Some(people) => {
