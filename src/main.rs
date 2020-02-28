@@ -18,8 +18,8 @@ fn main() {
     let consonant = PigLatin::new("first");
     let vowel = PigLatin::new("apple");
 
-    println!("The pig latin of consonant \"first\" is: {}", consonant.to_pig_latin());
-    println!("The pig latin of consonant \"apple\" is: {}", vowel.to_pig_latin());
+    println!("{}", consonant.print());
+    println!("{}", vowel.print());
 
     let mut company = Company::new();
     company.add(EmployeeDescription::new("Add Sally to Engineering"));

@@ -1,4 +1,6 @@
 pub mod pig_latin {
+    use crate::display::display::Print;
+
     const VOWEL: [char; 5] = ['a', 'e', 'i', 'o', 'u'];
 
     pub struct PigLatin {
@@ -22,6 +24,12 @@ pub mod pig_latin {
             }
 
             mut_str + "-" + &first_letter.to_string() + "ay"
+        }
+    }
+
+    impl Print for PigLatin {
+        fn print(&self) -> String {
+            format!("The pig latin of consonant \"{}\" is: {}\n", self.original_word, self.to_pig_latin())
         }
     }
 }
