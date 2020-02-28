@@ -1,6 +1,7 @@
 pub mod integer_vector {
     use rand::Rng;
     use std::collections::HashMap;
+    use crate::display::display::Print;
 
     pub struct RandomIntegerVector {
         int_vec: Vec<i32>
@@ -59,6 +60,19 @@ pub mod integer_vector {
             }
 
             max_key
+        }
+    }
+
+    impl Print for RandomIntegerVector {
+        fn print(&self) -> String {
+            return format!("The generated integer array is {:?}\n\
+            The mean of integer array is {}\n\
+            The median of integer array is {}\n\
+            The mode of integer array is {}\n",
+                    self.get_int_vec(),
+                    self.get_mean(),
+                    self.get_median(),
+                    self.get_mode());
         }
     }
 }

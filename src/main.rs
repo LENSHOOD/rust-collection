@@ -1,20 +1,19 @@
 mod integer_vector;
 mod pig_latin;
 mod company;
+mod display;
 
 use integer_vector::integer_vector::RandomIntegerVector;
 use pig_latin::pig_latin::PigLatin;
 use company::company::Company;
 use crate::company::company::EmployeeDescription;
+use display::display::Print;
 
 fn main() {
     let int_vec =
         RandomIntegerVector::build_random_integer_vector();
 
-    println!("The generated integer array is {:?}", int_vec.get_int_vec());
-    println!("The mean of integer array is {}", int_vec.get_mean());
-    println!("The median of integer array is {}", int_vec.get_median());
-    println!("The mode of integer array is {}", int_vec.get_mode());
+    println!("{}", int_vec.print());
 
     let consonant = PigLatin::new("first");
     let vowel = PigLatin::new("apple");
