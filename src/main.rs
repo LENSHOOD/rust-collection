@@ -3,11 +3,11 @@ mod pig_latin;
 mod company;
 mod display;
 
-use integer_vector::integer_vector::RandomIntegerVector;
-use pig_latin::pig_latin::PigLatin;
-use company::company::Company;
-use crate::company::company::EmployeeDescription;
-use display::display::Print;
+use integer_vector::RandomIntegerVector;
+use pig_latin::PigLatin;
+use company::Company;
+use company::EmployeeDescription;
+use display::Print;
 
 fn main() {
     let int_vec =
